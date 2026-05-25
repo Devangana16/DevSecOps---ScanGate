@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps | Vulnerable API</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dark-mode">
+    <div class="scanlines"></div>
+    <aside class="sidebar">
+        <div class="brand">
+            <i class="fa-solid fa-terminal security-icon"></i>
+            <div class="brand-text">
+                <h1>ScanGate</h1>
+                <span class="subtitle">File Upload API</span>
+            </div>
+        </div>
+        <div class="status-container">
+            <div class="status-indicator">
+                STATUS: <span id="api-status">OFFLINE</span> <span class="blink">▮</span>
+            </div>
+            <div class="uptime" id="uptime">UPTIME: 00:00:00</div>
+        </div>
+    </aside>
+    <main class="main-content">
+        <section class="upload-section">
+            <div class="section-header">
+                <h2>> file_upload.exe</h2>
+            </div>
+            <div id="drop-zone" class="drop-zone">
+                <input type="file" id="file-input" hidden>
+                <div class="drop-content">
+                    <div class="icon-container">
+                        <pre>[+]</pre>
+                    </div>
+                    <h3>> awaiting file input...</h3>
+                    <p class="file-limits">// unrestricted. no validation. intentional.</p>
+                    <button class="btn-primary" id="browse-btn">[ UPLOAD PAYLOAD ]<span class="blink">_</span></button>
+                </div>
+                <div class="scan-line"></div>
+            </div>
+            <div id="upload-progress" class="upload-progress hidden">
+                <div class="progress-info">
+                    <span id="progress-filename" class="filename">payload.jsp</span>
+                    <span id="progress-percentage" class="percentage">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+        </section>
+        <section class="files-section">
+            <div class="section-header">
+                <h2>> sys_files</h2>
+            </div>
+            <div class="table-container">
+                <table class="files-table">
+                    <thead>
+                        <tr>
+                            <th>Filename</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="files-list">
+                        <tr class="empty-state">
+                            <td colspan="3">&gt; No files indexed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div id="toast-container" class="toast-container"></div>
+    </main>
+</body>
+
+</html>
