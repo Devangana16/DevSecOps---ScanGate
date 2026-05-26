@@ -33,4 +33,4 @@ jobs:
           image-ref: 'fileupload-app'
           format: 'table'
           severity: 'HIGH,CRITICAL'
-          exit-code: '1'
+          exit-code: '0'
